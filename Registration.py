@@ -11,7 +11,7 @@ def login(username, password):
     if (success):
         print("Login Successful")
     else:
-        print("wrong user name or password")
+        print("wrong username or password")
 
 
 def register(username, password):
