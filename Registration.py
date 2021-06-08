@@ -15,9 +15,23 @@ def login(username, password):
 
 
 def register(username, password):
-    file = open("user_data.txt", "a")
-    file.write("\n" + username + "," + password)
+    flag=0
 
+    file = open("user_data.txt", "r+")
+    for i in file:
+        a, b = i.split(",")
+        b = b.strip()
+        if (a == username and b == password):
+            flag = 1
+            break
+
+    if (flag == 0):
+        print("Sign up sucessfully")
+        file.write("\n" + username + "," + password)
+    else: 
+        print("Username already taken")
+
+    file.close()
 
 def access(option):
     global name
