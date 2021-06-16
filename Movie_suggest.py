@@ -2,9 +2,9 @@ import random
 import requests
 from bs4 import BeautifulSoup
 
-URL = 'http://www.imdb.com/chart/top'
+def Suggest_movie(username):
+    URL = 'http://www.imdb.com/chart/top'
 
-def main():
     response = requests.get(URL)
 
     soup = BeautifulSoup(response.text, 'html.parser')
@@ -30,10 +30,12 @@ def main():
         
         print(f'{titles[idx]} {years[idx]}, Rating: {ratings[idx]:.1f}, Starring: {actors_list[idx]}')
 
-        user_input = input('Do you want another movie (y/[n])? ')
+        user_input = input("Do you want another movie (y/n)? ")
         if user_input != 'y':
-            break
-    
+            option = input("Do you want current movie to be added to your matched movies (y/n)? ")
+            if option == 'y':
+                file = open("film_data.txt", "a")
 
-if __name__ == '__main__':
-    main()
+                print("Film added sucessfully")
+                file.write(username + ", " + titles[idx] + "\n")
+            break
