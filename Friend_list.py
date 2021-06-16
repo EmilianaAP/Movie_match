@@ -1,11 +1,9 @@
 from Registration import enter_username
 
-def add_friend():
+def add_friend(username):
     friend = input("Enter your friends name")
 
     flag=0
-
-    username = enter_username()
 
     file = open("user_data.txt", "r+")
     for i in file:

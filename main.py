@@ -28,6 +28,11 @@ if have_access == 0:
         elif option == '2':
             Movie_suggest.Suggest_movie(username)
         elif option == '3':
+            to_add = input("Do you wanna add new friend (y/n): ")
+            
+            if to_add == 'y':
+                Friend_list.add_friend(username)
+
             Movie_matching.match(username)
 else:
     print("There is an error in your registration. Please try again later.")
