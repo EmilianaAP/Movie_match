@@ -1,6 +1,3 @@
-from os import access
-
-from requests.api import put
 import Friend_list
 import Movie_searching
 import Movie_suggest
@@ -19,8 +16,7 @@ elif option == 'n':
 else:
     print("Error!")
 
-if have_access == 0:
-    while option != '4':
+while option != '4':
         option = input("\nMENU:\n\t(1)Search movie\n\t(2)Suggest movie\n\t(3)Match movie with friend\n\t(4)Exit\n")
 
         if option == '1':
@@ -34,6 +30,3 @@ if have_access == 0:
                 Friend_list.add_friend(username)
 
             Movie_matching.match(username)
-else:
-    print("There is an error in your registration. Please try again later.")
-    print("If you need help contact this email: 'ema.andr33va@gmail.com'\n")

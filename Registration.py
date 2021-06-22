@@ -25,8 +25,7 @@ def login(username):
         print("Login Successful")
         return 0
     else:
-        print("wrong username or password")
-        return 1
+        raise Exception("Wrong username or password")
 
 def register(username):
     flag=0
@@ -40,13 +39,12 @@ def register(username):
             flag = 1
             break
 
-    if flag == 1:
-        print("Username already taken")
-        return 1
+    if (flag): 
+        raise Exception("Username already taken")
 
     password = enter_password()
 
-    if (flag == 0):
+    if (not flag):
         print("Sign up sucessfully")
         file.write(username + ", " + password + "\n")
     
