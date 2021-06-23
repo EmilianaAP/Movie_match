@@ -1,8 +1,6 @@
 from Registration import enter_username
 
-def add_friend(username):
-    friend = input("Enter your friends name")
-
+def add_friend(username, friend):
     flag=0
 
     file = open("user_data.txt", "r+")
@@ -15,12 +13,15 @@ def add_friend(username):
     
     file.close()
 
-    file = open("friend_data.txt", "a")
+    if (flag):
+        file = open("friend_data.txt", "a")
 
-    if (flag == 1):
         print("Friend added sucessfully")
         file.write(username + ", " + friend + "\n")
-    else: 
-        print("This username does not exist")
 
-    file.close()
+        file.close()
+        return 0
+    else: 
+        raise Exception("This username does not exist")
+
+    

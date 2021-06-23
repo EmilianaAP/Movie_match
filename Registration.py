@@ -6,10 +6,7 @@ def enter_password():
     password = input("Enter your password: ")
     return password
 
-def login(username):
-    
-    password = enter_password()
-
+def login(username, password):
     success = False
     file = open("user_data.txt", "r")
     for i in file:
@@ -22,12 +19,11 @@ def login(username):
     file.close()
 
     if (success):
-        print("Login Successful")
         return 0
     else:
         raise Exception("Wrong username or password")
 
-def register(username):
+def register(username, password):
     flag=0
 
     file = open("user_data.txt", "r+")
@@ -42,11 +38,9 @@ def register(username):
     if (flag): 
         raise Exception("Username already taken")
 
-    password = enter_password()
-
     if (not flag):
-        print("Sign up sucessfully")
         file.write(username + ", " + password + "\n")
+        return 0
     
     file.close()
-    return 0
+    

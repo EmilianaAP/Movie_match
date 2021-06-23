@@ -1,9 +1,4 @@
-from typing import Match
-
-
-def match(username):
-    friend_username = input("Enter your friend username: ")
-
+def match(username, friend_username):
     friend_matches = []
     my_matches = []
 
@@ -22,4 +17,5 @@ def match(username):
             if i == x:
                 print("Matched movie: ", i)
     
+    return 0
    

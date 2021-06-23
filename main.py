@@ -9,10 +9,20 @@ option = input("Do you have existing account(y/n): ")
 
 if option == 'y':
     username = Registration.enter_username()
-    have_access = Registration.login(username)
+    password = Registration.enter_password()
+    have_access = Registration.login(username, password)
+    
+    if(not have_access):
+        print("Login Successful")
+
 elif option == 'n':
     username = Registration.enter_username()
-    have_access = Registration.register(username)
+    password = Registration.enter_password()
+    have_access = Registration.register(username, password)
+
+    if(not have_access):
+        print("Sign up sucessfully")
+
 else:
     print("Error!")
 
@@ -26,7 +36,9 @@ while option != '4':
         elif option == '3':
             to_add = input("Do you wanna add new friend (y/n): ")
             
-            if to_add == 'y':
-                Friend_list.add_friend(username)
+            friend = input("Enter your friends name")
 
-            Movie_matching.match(username)
+            if to_add == 'y':
+                Friend_list.add_friend(username, friend)
+
+            Movie_matching.match(username, friend)
